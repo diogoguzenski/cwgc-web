@@ -1,0 +1,59 @@
+<header class="main-header">
+  <!-- Logo -->
+  <a routerLink='/admin' class="logo">
+    <span class="logo-mini"><b>CWGC</b></span>
+    <span class="logo-lg"><b>CWGC</b>WEB</span>
+  </a>
+  <nav class="navbar navbar-static-top">
+    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+      <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+        <!-- User Account: style can be found in dropdown.less -->
+        <li class="dropdown user user-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span class="hidden-xs">{{auth.getUser().name}}</span>
+            </a>
+          <ul class="dropdown-menu">
+            <!-- User image -->
+            <!-- <li class="user-header">
+
+              <p> {{auth.getUser().name}} - Web Developer
+                <small>Member since Nov. 2012</small>
+              </p>
+            </li> -->
+            <!-- Menu Body -->
+            <!-- <li class="user-body">
+              <div class="row">
+                <div class="col-xs-4 text-center">
+                  <a href="#">Followers</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                  <a href="#">Sales</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                  <a href="#">Friends</a>
+                </div>
+              </div> -->
+              <!-- /.row -->
+            <!-- </li> -->
+            <!-- Menu Footer-->
+            <li class="user-footer">
+              <div class="pull-left">
+                <a routerLink='/admin/profile' class="btn btn-default btn-flat">Meu perfil</a>
+              </div>
+              <div class="pull-right">
+                <a (click)="auth.logout($event)" class="btn btn-default btn-flat">Sair</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a routerLink='/admin/configuracoes'><i class="fa fa-gears"></i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

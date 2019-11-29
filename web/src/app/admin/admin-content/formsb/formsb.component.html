@@ -1,0 +1,229 @@
+<div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Formulários
+                <small>Listar</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Formulários</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="box">
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Tag</th>
+                                    <th></th>
+                                </tr>
+                                <tr *ngFor="let form of forms">
+                                    <td>{{ form.id }}</td>
+                                    <td>{{ form.name }}</td>
+                                    <td>{{ form.short_tag}}</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-danger" (click)="deleteForm(form.id)">Apagar</button>
+                                        <button class="btn btn-sm btn-success" (click)="selectForm(form)">Editar</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <modal id="custom-modal-1">
+                    <div class="modal">
+                        <div class="modal-body">
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Detalhes Formulário - {{ selectedForm.name }}</h3>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="box-body">
+                                        <form #f = "ngForm">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>ID</label>
+                                                        <input  class="form-control" disabled type="text" name="id" [(ngModel)] = "selectedForm.id">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label>Nome</label>
+                                                        <input class="form-control" type="text" name="name" [(ngModel)] = "selectedForm.name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Tag<span> Cole onde desejar exibir</span></label>
+                                                        <input class="form-control" type="text" name="short_tag" [(ngModel)] = "selectedForm.short_tag">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label></label>
+                                                        <textarea id="inputsUpdate" class="form-control" rows="3" name="inputs" [(ngModel)] = "selectedForm.inputs">{{selectedForm.inputs}}</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <button class="btn btn-success" (click)="updateForm(f)">Atualizar Formulário</button>
+                                                    <button class="btn btn-danger" (click)="closeModal('custom-modal-1');">Fechar</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <span>-</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-background"></div>
+                </modal>
+                <modal id="custom-modal-2">
+                    <div class="modal">
+                        <div class="modal-body">
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Adicionar Formulário</h3>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="box-body">
+                                        <form #f = "ngForm">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>ID</label>
+                                                        <input  class="form-control" disabled type="text" name="id" [(ngModel)] = "selectedForm.id">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label>Nome</label>
+                                                        <input class="form-control" type="text" name="name" [(ngModel)] = "selectedForm.name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Tag<span> Cole onde desejar exibir</span></label>
+                                                        <input class="form-control" type="text" name="short_tag" [(ngModel)] = "selectedForm.short_tag">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Campos do formulário</label>
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox">
+                                                                    <label>
+                                                                        <input type="checkbox" name="cname" [(ngModel)]="cname">
+                                                                        Nome
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox">
+                                                                    <label>
+                                                                        <input type="checkbox" name="email" [(ngModel)]="email">
+                                                                        E-mail
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox">
+                                                                    <label>
+                                                                        <input type="checkbox" name="phone" [(ngModel)]="phone">
+                                                                        Telefone
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox">
+                                                                    <label>
+                                                                        <input type="checkbox" name="city" [(ngModel)]="city">
+                                                                        Cidade
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox">
+                                                                    <label>
+                                                                        <input type="checkbox" name="address" [(ngModel)]="address">
+                                                                        Endereço
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox">
+                                                                    <label>
+                                                                        <input type="checkbox" name="comments" [(ngModel)]="comments">
+                                                                        Observações
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Canal de origem</label>
+                                                        <input class="form-control" type="text" name="origin" [(ngModel)]="origin">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Funil</label>
+                                                        <select class="form-control"  [(ngModel)]="funnel_id" name="funnel_id" (change)="onChangeFunnel($event.target.value)">
+                                                            <option value="{{funnel.id}}" *ngFor="let funnel of funnels">{{funnel.id}} - {{funnel.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Nível do Funil</label>
+                                                        <select class="form-control" [(ngModel)]="funnel_level_id" name="funnel_level_id">
+                                                            <option value="{{fl.id}}" *ngFor="let fl of funnelsLevel">{{fl.id}} - {{fl.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <input type="button" class="btn btn-success" (click)="createForm(f)" value="Adicionar Formulário">
+                                                <button class="btn btn-danger" (click)="closeModal('custom-modal-2');">Fechar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <span> - </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-background"></div>
+                </modal>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="box">
+                        <div class="box-body table-responsive no-padding">
+                            <button class="btn btn-primary" (click)="openModal('custom-modal-2')">Adicionar Formulário</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    

@@ -1,0 +1,267 @@
+<div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        Funils
+        <small>Listar</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Funils</li>
+      </ol>
+    </section>
+  
+    <section class="content">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="box">
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+                <tr>
+                  <th>ID</th>
+                  <th>Nome</th>
+                  <th>Desc</th>
+                  <th>Status</th>
+                  <th></th>      
+                </tr>
+                <tr *ngFor="let funnellevel of funnelslevel">
+                  <td>{{ funnellevel.id }}</td>
+                  <td>{{ funnellevel.name }}</td>
+                  <td>{{ funnellevel.description }}</td>
+                  <td>{{ funnellevel.status }}</td>
+                  <td>
+                    <button class="btn btn-sm btn-primary" (click)="selectFunnelLevel(funnellevel)">Ver</button>
+                    <!-- <button (click)="selectFunnel(funnel)">Ver clientes</button> -->
+                    <!-- <button routerLink="alterar/{{lead.id}}">Ver</button> -->
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <modal id="custom-modal-1">
+          <div class="modal">
+            <div class="modal-body">
+              <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Detalhes Funil - Nível - {{ selectedFunnell.name }}</h3>
+                </div>
+                <div class="col-lg-12">
+                  <div class="box-body">
+                    <form #f = "ngForm">    
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>ID</label>
+                            <input  class="form-control" disabled type="text" name="id" [(ngModel)] = "selectedFunnell.id">
+                          </div>
+                        </div>
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <label>Nome</label>
+                            <input class="form-control" type="text" name="name" [(ngModel)] = "selectedFunnell.name">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Descrição</label>
+                            <textarea  class="form-control" rows="1" name="description" [(ngModel)] = "selectedFunnell.description">
+                              {{ selectedFunnell.description }}
+                            </textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="box">
+                          <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                              <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Desc</th>
+                                <th>Status</th>
+                                <th></th>      
+                              </tr>
+                              <tr *ngFor="let lead of leads">
+                                <td>{{ lead.id }}</td>
+                                <td>{{ lead.name }}</td>
+                                <td>{{ lead.email }}</td>
+                                <td>{{ lead.phone }}</td>
+                                <td>
+                                  <button class="btn btn-sm btn-success" (click)="selectLead(lead)">Editar</button>
+                                  <!-- <input type="button" class="btn btn-sm btn-primary" (click)="updateLead(f)" value="Ver cliente"> -->
+                                  <!-- <button (click)="selectFunnelLevel(funnellevel)">Ver</button> -->
+                                  <!-- <button (click)="selectFunnel(funnel)">Ver clientes</button> -->
+                                  <!-- <button routerLink="alterar/{{lead.id}}">Ver</button> -->
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn btn-danger" (click)="closeModal('custom-modal-1');">Fechar</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-background"></div>
+        </modal>
+      </div>
+      <div class="row">
+          <modal id="custom-modal-2">
+            <div class="modal">
+              <div class="modal-body">
+                <div class="box">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">Adicionar etapa ao funil </h3>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="box-body">
+                      <form #f = "ngForm">    
+                        <div class="row">
+                          <div class="col-md-5">
+                            <div class="form-group">
+                              <input type="hidden" name="funnel_level_id" value="1">
+                              <label>Nome</label>
+                              <input class="form-control" type="text" name="name" [(ngModel)] = "selectedFunnell.name">
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Descrição</label>
+                              <textarea  class="form-control" rows="3" name="description" [(ngModel)] = "selectedFunnell.description">
+                                {{ selectedFunnell.description }}
+                              </textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <input type="button" class="btn btn-primary" (click)="createFunnelLevel(f)" value="Adicionar">
+                      </form>
+                    </div>
+                  </div>
+                  <button class="btn btn-danger" (click)="closeModal('custom-modal-2');">Fechar</button>
+                </div>
+              </div>
+            </div>
+            <div class="modal-background"></div>
+          </modal>
+        </div>
+        <div class="row">
+          <modal id="custom-modal-3">
+            <div class="modal">
+                <div class="modal-body">
+                    <div class="box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Detalhes cliente - {{ selectedLead.name }}</h3>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="box-body">
+                                <form #f = "ngForm">    
+                                  <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>ID</label>
+                                            <input  class="form-control" disabled type="text" name="id" [(ngModel)] = "selectedLead.id">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label>Nome</label>
+                                            <input class="form-control" type="text" name="name" [(ngModel)] = "selectedLead.name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>E-mail</label>
+                                            <input class="form-control" type="text" name="email" [(ngModel)] = "selectedLead.email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Telefone</label>
+                                            <input class="form-control" type="text" name="phone" [(ngModel)] = "selectedLead.phone">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Canal de origem</label>
+                                            <input class="form-control" type="text" name="origin" [(ngModel)] = "selectedLead.origin">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Criado em</label>
+                                            <input class="form-control" disabled type="text" name="created_at" [(ngModel)] = "selectedLead.created_at">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label>Cidade</label>
+                                            <input  class="form-control" type="text" name="city" [(ngModel)] = "selectedLead.city">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <label>Endereço</label>
+                                            <input class="form-control" type="text" name="address" [(ngModel)] = "selectedLead.address">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <textarea  class="form-control" rows="3" placeholder="Observações sobre o cliente" name="comments" [(ngModel)] = "selectedLead.comments">
+                                                {{ selectedLead.comments }}
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Funil</label>
+                                            <select class="form-control" (change)="onChangeFunnel($event.target.value)">
+                                                <option value="1">Funil Formulários</option>                                                        <option value="{{fl.id}}" *ngFor="let fl of funnelsLevel">{{fl.id}} - {{fl.name}}</option>
+                                                <option value="{{funnel.id}}" *ngFor="let funnel of funnels">{{funnel.id}} - {{funnel.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Etapa do funil</label>
+                                            <select class="form-control" name="funnel_level_id" [(ngModel)] = "selectedLead.funnel_level_id" >
+                                            <option value="1">Inicial</option>
+                                            <option value="{{fl.id}}" *ngFor="let fl of funnelsLevel">{{fl.id}} - {{fl.name}}</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-success" (click)="updateLead(f)">Atualizar cliente</button>
+                                <button class="btn btn-danger" (click)="closeModal('custom-modal-3');">Fechar</button>
+                            </form>
+                        </div>
+                    </div>
+                    <span>-</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-background"></div>
+    </modal>
+        </div>
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="box">
+                  <div class="box-body table-responsive no-padding">
+                      <button class="btn btn-primary" (click)="openModal('custom-modal-2')">Adicionar Etapa</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section>
+  </div>
+  

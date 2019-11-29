@@ -1,0 +1,12 @@
+.inputColor{
+    display:block;
+}
+.lightLogo{
+    background:#333333;
+}
+.inputColor {
+    max-width: 150px !important;
+}
+.form-group img{
+    margin-bottom:15px;
+}

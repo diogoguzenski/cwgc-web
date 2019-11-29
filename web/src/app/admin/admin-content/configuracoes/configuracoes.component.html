@@ -1,0 +1,265 @@
+<!-- <select class="form-control select2" style="width: 100%;">
+    <option selected="selected">Alabama</option>
+    <option>Alaska</option>
+    <option>California</option>
+    <option>Delaware</option>
+    <option>Tennessee</option>
+    <option>Texas</option>
+    <option>Washington</option>
+</select> -->
+
+
+<div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Configurações
+                <small></small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a routerLink='/admin'><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Configurações</li>
+            </ol>
+        </section>
+        <section class="content">
+            <form [formGroup]="form" (ngSubmit)="submitForm()" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box box-default">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Iniciais</h3>
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Título do site</label>
+                                            <input class="form-control" type="text" formControlName="sitename">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Descrição</label>
+                                            <textarea class="form-control" rows="3" placeholder="" formControlName="sitedesc">
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Google TagManager</label>
+                                            <textarea class="form-control" rows="3" placeholder="" formControlName="gtagmaneger" >
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Google Analytics</label>
+                                            <textarea class="form-control" rows="3" placeholder="" formControlName="ganalytics" >
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box box-default">
+                            <div class="box-header">
+                                <h3 class="box-title">Informações da empresa</h3>
+                            </div>
+                            <div class="box-body">
+    
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-facebook"></i>
+                                            </div>
+                                            <input type="text" class="form-control" formControlName="enterprisefacebook">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-instagram"></i>
+                                            </div>
+                                            <input type="text" class="form-control" formControlName="enterpriseinstagram">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-google-plus"></i>
+                                            </div>
+                                            <input type="text" class="form-control" formControlName="enterprisegoogleplus">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-twitter"></i>
+                                            </div>
+                                            <input type="text" class="form-control" formControlName="enterprisetwitter">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-vimeo"></i>
+                                            </div>
+                                            <input type="text" class="form-control" formControlName="enterprisevimeo">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-youtube"></i>
+                                            </div>
+                                            <input type="text" class="form-control" formControlName="enterpriseyoutube">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-pinterest"></i>
+                                            </div>
+                                            <input type="text" class="form-control" formControlName="enterprisepinterest">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-phone"></i>
+                                            </div>
+                                            <input type="text" class="form-control" formControlName="enterprisephone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-whatsapp"></i>
+                                            </div>
+                                            <input type="text" class="form-control" formControlName="enterprisewhatsapp">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-envelope-open"></i>
+                                            </div>
+                                            <input type="text" class="form-control" formControlName="enterpriseemail">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Endereço</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-map-marker"></i>
+                                            </div>
+                                            <input type="text" class="form-control" formControlName="enterpriseaddress">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label style="width:100%;">Logo Light</label>
+                                        <img class="lightLogo" width="150" src="{{slightlogo}}">
+                                        <input name="image" type="file" (change)="onFileChanged($event,0)">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label style="width:100%;">Logo Dark</label>
+                                        <img width="150" src="{{sdarklogo}}">
+                                        <input name="image" type="file" (change)="onFileChanged($event,1)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="box box-default">
+                            <div class="box-header">
+                                <h3 class="box-title">Cores</h3>
+                            </div>
+                            <div class="box-body">
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label>Light color - títulos</label>
+                                        <input class="inputColor form-control" [value]="lighttitlecolor" (colorPickerChange)="lighttitlecolor=$event; changeColor($event,1)" [cpSaveClickOutside]="('true')" [(colorPicker)]="lighttitlecolor" [style.background]="lighttitlecolor" formControlName="lighttitlecolor"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label>Light color - conteúdos</label>
+                                        <input class="inputColor form-control" [value]="lightcontentcolor" (colorPickerChange)="lightcontentcolor=$event;changeColor($event,2)" [cpSaveClickOutside] [(colorPicker)]="lightcontentcolor" [style.background]="lightcontentcolor" formControlName="lightcontentcolor"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label>Dark color - títulos</label>
+                                        <input class="inputColor form-control" [value]="darktitlecolor" (colorPickerChange)="darktitlecolor=$event;changeColor($event,3)" [cpSaveClickOutside] [(colorPicker)]="darktitlecolor" [style.background]="darktitlecolor" formControlName="darktitlecolor"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label>Dark color - conteúdos</label>
+                                        <input class="inputColor form-control" [value]="darkcontentcolor" (colorPickerChange)="darkcontentcolor=$event;changeColor($event,4)" [cpSaveClickOutside] [(colorPicker)]="darkcontentcolor" [style.background]="darkcontentcolor" formControlName="darkcontentcolor"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label>Fundo cabeçalho</label>
+                                        <input class="inputColor form-control" [value]="headercolor" (colorPickerChange)="headercolor=$event;changeColor($event,5)" [cpSaveClickOutside] [(colorPicker)]="headercolor" [style.background]="headercolor" formControlName="headercolor"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label>Links cabeçalho</label>
+                                        <input class="inputColor form-control" [value]="headerlinkcolor" (colorPickerChange)="headerlinkcolor=$event;changeColor($event,6)" [cpSaveClickOutside] [(colorPicker)]="headerlinkcolor" [style.background]="headerlinkcolor" formControlName="headerlinkcolor"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label>Fundo rodapé</label>
+                                        <input class="inputColor form-control" [value]="footercolor" (colorPickerChange)="footercolor=$event;changeColor($event,7)" [cpSaveClickOutside] [(colorPicker)]="footercolor" [style.background]="footercolor" formControlName="footercolor"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label>Cor dos textos rodapé</label>
+                                        <input class="inputColor form-control" [value]="footercontentcolor" (colorPickerChange)="footercontentcolor=$event;changeColor($event,8)" [cpSaveClickOutside] [(colorPicker)]="footercontentcolor" [style.background]="footercontentcolor" formControlName="footercontentcolor"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block btn-lg">Atualizar</button>
+                </div>
+            </form>
+        </section>
+    </div>
